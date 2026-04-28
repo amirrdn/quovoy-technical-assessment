@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
   res.send('Lead Manager API is running...');
 });
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 8080;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://mongodb:27017/lead-manager';
 
 mongoose.connect(MONGODB_URI)
