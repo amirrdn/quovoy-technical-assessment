@@ -1,0 +1,25 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: lead-manager-backend
+    ports:
+      - "5001:5001"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/lead-manager
+      - PORT=5001
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+volumes:
+  mongo-data:
