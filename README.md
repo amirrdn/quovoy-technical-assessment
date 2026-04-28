@@ -1,38 +1,40 @@
 # Lead Manager
 
-A simple lead management system built with Next.js, Node.js (Express), and MongoDB.
+A simple and efficient lead management system built with Next.js, Node.js (Express), and MongoDB.
+
+## Live Demo
+- **Frontend**: [https://quovoy-technical-assessment.vercel.app/](https://quovoy-technical-assessment.vercel.app/)
 
 ## Features
-- Add new leads via form
-- List all active leads with status indicators
-- Audit logging for lead creation
-- Dockerized environment for easy setup
+- **Lead Creation**: Add leads with name, email, and status.
+- **Lead Listing**: Real-time view of all leads in the pipeline.
+- **Audit Logging**: All activities are logged in the backend (`backend/logs/audit.log`).
+- **Clean Architecture**: Backend organized into Domain, Application, and Infrastructure layers.
 
-## Getting Started
+## Tech Stack
+- **Frontend**: Next.js 15 (App Router), TypeScript, Axios, React-Select.
+- **Backend**: Node.js, Express, TypeScript, Mongoose.
+- **Database**: MongoDB Atlas.
+- **Deployment**: Vercel (Frontend) & Railway (Backend).
 
-### Prerequisites
-- Docker and Docker Compose
+## Getting Started Locally
 
-### Running the Project
-1. Run the infrastructure (DB & Backend) using Docker:
-   ```bash
-   docker-compose up
+### 1. Backend
+1. Go to `backend` folder.
+2. Create `.env` file:
    ```
-2. Start the Frontend locally:
-   ```bash
-   cd frontend
-   npm install
-   npm run dev
+   PORT=5001
+   MONGODB_URI=your_mongodb_uri
    ```
+3. Run `npm install` and `npm run dev`.
 
-## Architecture
-- **Backend**: Node.js Express with Clean Architecture (Domain, Application, Infrastructure layers).
-- **Frontend**: Next.js (App Router) with TypeScript and Axios.
-- **Database**: MongoDB with Mongoose.
-
-## Audit Logs
-Activities are logged in `backend/logs/audit.log` using the format:
-`{username} {activity} {target}`
+### 2. Frontend
+1. Go to `frontend` folder.
+2. Create `.env.local` file:
+   ```
+   NEXT_PUBLIC_API_URL=http://localhost:5001
+   ```
+3. Run `npm install` and `npm run dev`.
 
 ---
 Built for the Fullstack Developer assessment.
